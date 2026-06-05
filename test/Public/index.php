@@ -2,34 +2,15 @@
 
 session_start();
 
-require_once '../App/config.php';
-
 require_once __DIR__ . '/../App/Controller/AntenneController.php';
 require_once __DIR__ . '/../App/Controller/UserController.php';
 require_once __DIR__ . '/../App/Controller/HomeController.php';
 require_once __DIR__ . '/../App/Controller/FormController.php';
-require_once __DIR__ . '/../App/Controller/AuthController.php';
-require_once __DIR__ . '/../App/Controller/DashboardController.php';
 
 $action = $_GET['action'] ?? 'home';
 $id = $_GET['id'] ?? null;
 
-if ($action === 'login') {
-
-    $controller = new AuthController();
-    $controller->login();
-
-} elseif ($action === 'logout') {
-
-    $controller = new AuthController();
-    $controller->logout();
-
-} elseif ($action === 'dashboard') {
-
-    $controller = new DashboardController();
-    $controller->index();
-
-} elseif ($action === 'users') {
+if ($action === 'users') {
     $controller = new UserController();
     $role = $_GET['role'] ?? 'admin';
     $antenneId = isset($_GET['antenne_id']) ? (int) $_GET['antenne_id'] : null;
@@ -60,42 +41,7 @@ if ($action === 'login') {
     } else {
         $controller->don();
     }
-}
-elseif ($action === 'don_success') {
-
-    $controller = new FormController();
-    $controller->don_success();
-
-}
-elseif ($action === 'dons_admin') {
-    $controller = new DashboardController();
-    $controller->dons();
-}
-elseif ($action === 'adhesions_admin') {
-    $controller = new DashboardController();
-    $controller->adhesions();
-}
-
-elseif ($action === 'user_edit') {
-
-    $controller = new UserController();
-    $controller->edit($id);
-
-}
-elseif ($action === 'user_update') {
-
-    $controller = new UserController();
-    $controller->update();
-
-}
-elseif ($action === 'user_delete') {
-
-    $controller = new UserController();
-    $controller->delete($id);
-
-}
-
-else {
+} else {
     $controller = new HomeController();
     $controller->index();
 }

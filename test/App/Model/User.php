@@ -42,14 +42,12 @@ class User extends Model {
         }
 
         return [];
-    
     }
 
-// Récupère un utilisateur par son email
     public function findByEmail($email)
 {
     $stmt = $this->pdo->prepare(
-        "SELECT * FROM users WHERE email = ?"
+        "SELECT * FROM users WHERE email = ? LIMIT 1"
     );
 
     $stmt->execute([$email]);
@@ -57,28 +55,34 @@ class User extends Model {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-public function createUser(
-    $nom,
-    $prenom,
-    $email,
-    $password,
-    $role = 'adherent',
-    $antenneId = null
-)
+public function create($nom, $prenom, $email, $password, $antenneId = null)
 {
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
     $stmt = $this->pdo->prepare(
         "INSERT INTO users
         (nom, prenom, email, password, role, antenne_id)
-        VALUES (?, ?, ?, ?, ?, ?)"
+        VALUES (?, ?, ?, ?, 'adherent', ?)"
     );
 
     return $stmt->execute([
         $nom,
         $prenom,
         $email,
-        password_hash($password, PASSWORD_DEFAULT),
-        $role,
+        $hash,
         $antenneId
     ]);
 }
+
+public function findById($id)
+{
+    $stmt = $this->pdo->prepare(
+        "SELECT * FROM users WHERE id = ?"
+    );
+
+    $stmt->execute([$id]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 }

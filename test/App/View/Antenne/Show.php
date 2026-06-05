@@ -29,27 +29,14 @@
     <main class="antenne-page container reveal">
         <a class="back" href="index.php">Retour aux antennes</a>
 
-        <section class="antenne-hero">
-
-    <div class="hero-overlay">
-
-        <span class="hero-badge">
-            📍 Antenne locale
-        </span>
-
-        <h1>
-            Antenne de
-            <?= htmlspecialchars($antenne['ville'] ?? $antenne['nom']) ?>
-        </h1>
-
-        <p>
-            Accompagner les familles,
-            favoriser l'inclusion et créer du lien sur le territoire.
-        </p>
-
-    </div>
-
-</section>
+        <header class="antenne-header">
+            <div class="antenne-logo">
+                <span>Association</span>
+                <strong>All Inclusive</strong>
+                <small><?= htmlspecialchars($antenne['ville'] ?? 'Paris') ?></small>
+            </div>
+            <h1>Antenne de <?= htmlspecialchars($antenne['ville'] ?? $antenne['nom']) ?></h1>
+        </header>
 
         <section class="antenne-layout">
             <aside class="contact-box">
@@ -140,47 +127,6 @@
                     </p>
                 </article>
 
-                <div class="antenne-stats">
-
-    <div class="stat-card">
-        <strong><?= count($events) ?></strong>
-        <span>Événements à venir</span>
-    </div>
-
-    <div class="stat-card">
-        <strong>1</strong>
-        <span>Antenne active</span>
-    </div>
-
-    <div class="stat-card">
-        <strong>100%</strong>
-        <span>Engagement associatif</span>
-    </div>
-
-</div>
-
-<section class="team-box">
-
-    <h2>Notre équipe</h2>
-
-    <div class="team-member">
-
-        <div class="avatar">
-            <?= strtoupper(substr($antenne['responsable'] ?? 'R', 0, 1)) ?>
-        </div>
-
-        <div>
-            <strong>
-                <?= htmlspecialchars($antenne['responsable'] ?? 'Responsable') ?>
-            </strong>
-
-            <p>Référent(e) de l'antenne</p>
-        </div>
-
-    </div>
-
-</section>
-
                 <section class="events-section">
                     <h2>Evenements</h2>
                     <div class="events-grid">
@@ -205,24 +151,11 @@
                             <?php endforeach; ?>
                         <?php else: ?>
                             <article class="event-card event-card--empty">
-    <h3>📅 Aucun événement à venir</h3>
-
-    <p>
-        Les prochaines activités organisées par cette antenne
-        seront affichées ici dès leur publication.
-    </p>
-
-    <button type="button" disabled>
-        Bientôt disponible
-    </button>
-</article>
+                                <h3>Aucun evenement a venir</h3>
+                                <p>Les prochaines activites seront affichees ici.</p>
+                                <button type="button" disabled>Bientot</button>
+                            </article>
                         <?php endif; ?>
-                        <a
-                            class="join-btn"
-                            href="index.php?action=adhesion"
-                        >
-                        Rejoindre cette antenne
-                        </a>
                     </div>
                 </section>
             </div>

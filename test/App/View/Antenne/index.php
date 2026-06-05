@@ -13,11 +13,7 @@
     <header class="hero">
         <div class="hero__texture"></div>
         <nav class="topbar container" aria-label="Navigation principale">
-                <div class="brand">
-                <img src="assets/logo/logo%20du%20site.jpg" alt="All Inclusive" class="site-logo">
-                All Inclusive
-            </div>
-
+            <div class="brand">All Inclusive</div>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a role="menuitem" href="index.php" class="nav-link">Accueil</a></li>
                 <li role="none"><a role="menuitem" href="index.php?action=antennes" class="nav-link">Nos antennes</a></li>
@@ -56,10 +52,7 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                 <img src="assets/logo/logo%20du%20site.jpg"
-                 alt="All Inclusive"
-                 class="footer-logo">
-            <h3>All Inclusive</h3> 
+                <strong>All Inclusive</strong>
                 <p>Accompagner les familles au plus près du territoire.</p>
             </div>
 

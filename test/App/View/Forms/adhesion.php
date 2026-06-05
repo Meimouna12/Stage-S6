@@ -31,15 +31,10 @@
 			<div class="alert"><?= htmlspecialchars($error) ?></div>
 		<?php endif; ?>
 		<h1>Formulaire d'adhésion</h1>
-		<!-- <p>Remplissez le formulaire pour devenir adhérent. Le paiement Stripe de <strong>30 €</strong> se fera avant l’envoi final.</p> -->
-		<p class="hero__lead">
-    		L'adhésion annuelle est fixée à <strong>30 €</strong>.
-    		Après validation du formulaire, vous serez redirigé vers HelloAsso pour effectuer votre paiement sécurisé.
-		</p>
-		<br>
-		<br>
-			<form method="post" action="index.php?action=adhesion">
-				<div class="form-row">
+		<p>Remplissez le formulaire pour devenir adhérent. Le paiement Stripe de <strong>30 €</strong> se fera avant l’envoi final.</p>
+
+		<form method="post" action="index.php?action=adhesion">
+			<div class="form-row">
 				<div class="col">
 					<label>Prénom
 						<input type="text" name="prenom" required value="<?= htmlspecialchars($old['prenom'] ?? '') ?>">
@@ -72,9 +67,7 @@
 			</label>
 
 			<input type="hidden" name="montant" value="30">
-			<button class="btn" type="submit">
-    			Continuer vers le paiement
-			</button>		
+			<button class="btn" type="submit">Payer 30 € avec Stripe</button>
 		</form>
 	</main>
 

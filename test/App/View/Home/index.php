@@ -18,62 +18,10 @@
                 All Inclusive
             </div>
             <ul class="nav-links" role="menubar">
-
-    <li role="none">
-        <a role="menuitem" href="index.php" class="nav-link">
-            Accueil
-        </a>
-    </li>
-
-    <li role="none">
-        <a role="menuitem" href="index.php?action=antennes" class="nav-link">
-            Nos antennes
-        </a>
-    </li>
-
-    <li role="none">
-        <a role="menuitem" href="#contact" class="nav-link">
-            Contact
-        </a>
-    </li>
-
-    <?php if(isset($_SESSION['user'])): ?>
-
-        <li role="none">
-            <span class="nav-link">
-                👋 <?= htmlspecialchars($_SESSION['user']['prenom']) ?>
-            </span>
-        </li>
-
-        <li role="none">
-            <a role="menuitem"
-               href="index.php?action=dashboard"
-               class="nav-link">
-                Dashboard
-            </a>
-        </li>
-
-        <li role="none">
-            <a role="menuitem"
-               href="index.php?action=logout"
-               class="nav-link">
-                Déconnexion
-            </a>
-        </li>
-
-    <?php else: ?>
-
-        <li role="none">
-            <a role="menuitem"
-               href="index.php?action=login"
-               class="nav-link">
-                Connexion
-            </a>
-        </li>
-
-    <?php endif; ?>
-
-</ul>
+                <li role="none"><a role="menuitem" href="index.php" class="nav-link">Accueil</a></li>
+                <li role="none"><a role="menuitem" href="index.php?action=antennes" class="nav-link">Nos antennes</a></li>
+                <li role="none"><a role="menuitem" href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </nav>
 
         <div class="hero__content container reveal">
@@ -167,57 +115,32 @@
         </section>
     </main>
 
-   <footer class="site-footer">
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <strong>All Inclusive</strong>
+                <p>Accompagner les familles au plus près du territoire.</p>
+            </div>
 
-    <div class="footer-wave"></div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="index.php?action=antennes">Nos antennes</a></li>
+                </ul>
+            </div>
 
-    <div class="container footer-grid">
+            <div class="footer-contact" id="contact">
+                <h4>Contact</h4>               
+                <p> allinclusive.autisme@gmail.com</p>
+                <p>+33 6 59 18 78 92</p>
 
-        <div class="footer-brand">
-            <img src="assets/logo/logo%20du%20site.jpg"
-                 alt="All Inclusive"
-                 class="footer-logo">
-
-            <h3>All Inclusive</h3>
-
-            <p>
-                Accompagner les familles, promouvoir l'inclusion
-                et développer des actions locales adaptées aux besoins
-                des enfants autistes et de leurs proches.
-            </p>
+            </div>
         </div>
-
-        <div class="footer-links">
-            <h4>Navigation</h4>
-
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="index.php?action=antennes">Nos antennes</a></li>
-                <li><a href="index.php?action=adhesion">Adhérer</a></li>
-                <li><a href="index.php?action=don">Faire un don</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <div class="container">© <?= date('Y') ?> All Inclusive — Tous droits réservés</div>
         </div>
-
-        <div class="footer-contact" id="contact">
-            <h4>Contact</h4>
-
-            <p>📧 allinclusive.autisme@gmail.com</p>
-
-            <p>📞 +33 6 59 18 78 92</p>
-
-            <p>📍 France</p>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            © <?= date('Y') ?>
-            All Inclusive — Tous droits réservés
-        </div>
-    </div>
-
-</footer>
+    </footer>
 
     <script src="assets/js/site.js"></script>
 </body>
